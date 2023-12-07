@@ -18,8 +18,8 @@ const Menu = () => (
         <a href="#notre-equipe">Notre équipe</a>
       </li>
     </ul>
-    <Button title="contact" onClick={() => (window.document.location.hash = "#contact")}>
-      Contact
+    <Button title="contact">
+      <a href="#contact">Contact</a>
     </Button>
   </nav>
 );

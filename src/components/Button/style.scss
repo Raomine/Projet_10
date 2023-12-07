@@ -7,10 +7,10 @@
     rgba(101, 63, 255, 1) 0%,
     rgba(150, 125, 255, 1) 100%
   );
+  color: white;
   height: 80px;
   min-width: 210px;
   border: none;
-  color: white;
   font-size: 16pt;
   &:hover {
     background: linear-gradient(
@@ -19,5 +19,9 @@
       rgba(50, 0, 255, 1) 100%
     );
     cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: white;
   }
 }
