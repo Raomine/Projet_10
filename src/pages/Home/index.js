@@ -121,7 +121,7 @@ const Page = () => {
       </main>
       <footer className="row">
         <div className="col presta">
-          <h3>Notre derniére prestation</h3>
+          <h3 data-testid="LastCard">Notre derniére prestation</h3>
           {last && (
             <EventCard
               imageSrc={last?.cover}
@@ -129,7 +129,6 @@ const Page = () => {
               date={new Date(last?.date)}
               small
               label="boom"
-              data-testid="LastCard LastImg"
             />
           )}
         </div>

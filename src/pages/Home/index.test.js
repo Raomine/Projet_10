@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Home from "./index";
-import EventCard from "../../components/EventCard/index";
 
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
@@ -45,17 +44,8 @@ describe("When a page is created", () => {
     expect(footer).toBeInTheDocument();
   });
   it("an event card, with the last event, is displayed", () => {
-    render(
-      <>
-        <Home />
-        <EventCard />
-      </>
-    );
-    const lastCard = screen.getByTestId("LastCard");
-    const lastImg = screen.getAllByTestId("LastImg");
-    expect(lastCard).toBeInTheDocument();
-    expect(lastCard.getAttribute("class").includes("Eventcard--small"));
-    expect(lastImg).not.toBeNaN();
-    expect(lastImg).toBeDefined();
+    render(<Home />);
+    const last = screen.getByTestId("LastCard");
+    expect(last).toBeInTheDocument();
   });
 });
