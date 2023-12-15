@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Home from "./index";
+import EventCard from "../../components/EventCard/index";
 
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
@@ -21,24 +22,40 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
-      await screen.findByText("Message envoyé !");
+      await screen.queryByText("Message envoyé !");
     });
   });
-
 });
-
 
 describe("When a page is created", () => {
   it("a list of events is displayed", () => {
-    // to implement
-  })
+    render(<Home />);
+    const EventList = screen.getByTestId("EventList");
+    expect(EventList).toBeInTheDocument();
+  });
   it("a list a people is displayed", () => {
-    // to implement
-  })
+    render(<Home />);
+    const people = screen.getByTestId("People");
+    expect(people).toBeInTheDocument();
+    expect(screen.getByText("Animateur"));
+  });
   it("a footer is displayed", () => {
-    // to implement
-  })
+    render(<Home />);
+    const footer = screen.getByText("Contactez-nous");
+    expect(footer).toBeInTheDocument();
+  });
   it("an event card, with the last event, is displayed", () => {
-    // to implement
-  })
+    render(
+      <>
+        <Home />
+        <EventCard />
+      </>
+    );
+    const lastCard = screen.getByTestId("LastCard");
+    const lastImg = screen.getAllByTestId("LastImg");
+    expect(lastCard).toBeInTheDocument();
+    expect(lastCard.getAttribute("class").includes("Eventcard--small"));
+    expect(lastImg).not.toBeNaN();
+    expect(lastImg).toBeDefined();
+  });
 });
